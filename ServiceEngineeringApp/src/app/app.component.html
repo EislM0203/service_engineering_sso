@@ -1,22 +1,30 @@
-
 <div class="center">
 
   <div class="card" style="width: 20rem;">
-    <img src="https://images.unsplash.com/photo-1483354483454-4cd359948304?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="asdf">
+    <img
+      src="https://images.unsplash.com/photo-1483354483454-4cd359948304?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+      class="card-img-top" alt="asdf">
     <div class="card-body">
       <h2 class="card-title">Bitte einloggen!</h2>
       <p class="card-text">Hier soll der SSO Login hin!</p>
 
-      <input type="email" id="inputEmail" class="mb-2" maxlength="250" name="email" placeholder="eMail" ng-model="email">
-      <input type="password" id="inputPassword" class="" maxlength="250" name="password" placeholder="Passwort" ng-model="password" ng-enter="login()">
+      <input type="email" id="inputEmail" class="mb-2" maxlength="250" name="email" placeholder="eMail"
+             ngModel="email">
+      <input type="password" id="inputPassword" class="" maxlength="250" name="password" placeholder="Passwort"
+             ngModel="password" ng-enter="login()">
       <br>
-      <button id="loginbtn" class="btn btn-dark mt-3" ng-click="login()"><span class="fas fa-sign-in-alt"></span> Login</button>
+      <button id="loginbtn" class="btn btn-dark mt-3" (click)="login()"><span class="fas fa-sign-in-alt"></span>Login
+      </button>
 
-<hr>
+      <hr>
 
-<button id="loginbtn" class="btn btn-dark" ng-click="login()"><span class="fas fa-sign-in-alt"></span> Login with Shibboleth SSO</button>
+      <button id="loginbtnS" class="btn btn-dark" (click)="loginS()"><span class="fas fa-sign-in-alt"></span> Login with
+        Shibboleth SSO
+      </button>
 
-<button id="loginbtn" class="btn btn-dark mt-2" ng-click="login()"><span class="fas fa-sign-in-alt"></span> Login with Keycloak SSO</button>
+      <button id="loginbtnK" class="btn btn-dark mt-2" (click)="loginK()"><span class="fas fa-sign-in-alt"></span> Login
+        with Keycloak SSO
+      </button>
 
     </div>
   </div>
