@@ -6,26 +6,16 @@
       class="card-img-top" alt="asdf">
     <div class="card-body">
       <h2 class="card-title">Bitte einloggen!</h2>
-      <p class="card-text">Hier soll der SSO Login hin!</p>
-
-      <input type="email" id="inputEmail" class="mb-2" maxlength="250" name="email" placeholder="eMail"
-             ngModel="email">
-      <input type="password" id="inputPassword" class="" maxlength="250" name="password" placeholder="Passwort"
-             ngModel="password" ng-enter="login()">
-      <br>
-      <button id="loginbtn" class="btn btn-dark mt-3" (click)="login()"><span class="fas fa-sign-in-alt"></span>Login
-      </button>
 
       <hr>
 
-      <button id="loginbtnS" class="btn btn-dark" (click)="loginS()"><span class="fas fa-sign-in-alt"></span> Login with
-        Shibboleth SSO
-      </button>
+      <!--<button id="loginbtnS" class="btn btn-dark" (click)="loginS()"><span class="fas fa-sign-in-alt"></span> Login with
+        Shibboleth SSO (not implemented)
+      </button>-->
 
       <button id="loginbtnK" class="btn btn-dark mt-2" (click)="loginK()"><span class="fas fa-sign-in-alt"></span> Login
         with Keycloak SSO
       </button>
     </div>
   </div>
-
 </div>

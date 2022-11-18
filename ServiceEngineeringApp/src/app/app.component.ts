@@ -53,5 +53,6 @@ export class AppComponent {
       .pipe(filter((e) => e.type === 'token_received'))
       .subscribe((_) => this.oauthService.loadUserProfile());
     this.oauthService.initLoginFlow()
+
   }
 }
