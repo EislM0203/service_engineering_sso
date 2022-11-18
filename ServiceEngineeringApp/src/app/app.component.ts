@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
-import {AuthConfig, OAuthService} from "angular-oauth2-oidc";
+import {OAuthService} from "angular-oauth2-oidc";
 import {filter} from "rxjs";
 import {authCodeFlowConfig} from "./auth.config";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -13,15 +12,7 @@ import {Router} from "@angular/router";
 
 export class AppComponent {
 
-  constructor(private oauthService: OAuthService) {
-    this.oauthService.configure(authCodeFlowConfig);
-    this.oauthService.loadDiscoveryDocumentAndLogin();
-
-    //this.oauthService.initCodeFlow('localhost:4200');
-    this.oauthService.events
-      .pipe(filter((e) => e.type === 'token_received'))
-      .subscribe((_) => this.oauthService.loadUserProfile());
-  }
+  constructor(private oauthService: OAuthService) {}
 
   get userName(): string {
     const claims = this.oauthService.getIdentityClaims();
@@ -55,6 +46,12 @@ export class AppComponent {
   }
 
   loginK() {
+    this.oauthService.configure(authCodeFlowConfig);
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
 
+    this.oauthService.events
+      .pipe(filter((e) => e.type === 'token_received'))
+      .subscribe((_) => this.oauthService.loadUserProfile());
+    this.oauthService.initLoginFlow()
   }
 }
