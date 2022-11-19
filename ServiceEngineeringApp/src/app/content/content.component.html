@@ -1,0 +1,13 @@
+
+        <button class="btn btn-dark" disabled="disabled" routerLink="/content" *ngIf="!isAuthenticated">Content</button>
+        <button class="btn btn-dark ms-2" routerLink="/auth" *ngIf="!isAuthenticated">zum Login</button>
+        <button class="btn btn-dark ms-2" (click)="onLogout()" *ngIf="!isAuthenticated">Logout</button>
+
+        <button class="btn btn-dark ms-2" (click)="loadProfile()" *ngIf="!isAuthenticated">LoadProfile</button>
+   
+
+
+
+<h1> CONTENT AFTER LOGIN</h1>
+
+<h2>Hello {{userName}}</h2>

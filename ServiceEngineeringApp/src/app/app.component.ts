@@ -1,7 +1,6 @@
-import {Component} from '@angular/core';
-import {OAuthService} from "angular-oauth2-oidc";
-import {filter} from "rxjs";
-import {authCodeFlowConfig} from "./auth.config";
+import {Component, OnInit} from '@angular/core';
+import { AuthService } from './auth/auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -10,49 +9,13 @@ import {authCodeFlowConfig} from "./auth.config";
 })
 
 
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  constructor(private oauthService: OAuthService) {}
-
-  get userName(): string {
-    const claims = this.oauthService.getIdentityClaims();
-    if (!claims) return '';
-    // @ts-ignore
-    return claims['given_name'];
-  }
-
-  get idToken(): string {
-    return this.oauthService.getIdToken();
-  }
-
-  get accessToken(): string {
-    return this.oauthService.getAccessToken();
-  }
-
-  refresh() {
-    this.oauthService.refreshToken();
-  }
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
-
+    //this.authService.autoLogin();
   }
 
-  login() {
 
-  }
-
-  loginS() {
-
-  }
-
-  loginK() {
-    this.oauthService.configure(authCodeFlowConfig);
-    this.oauthService.loadDiscoveryDocumentAndTryLogin();
-
-    this.oauthService.events
-      .pipe(filter((e) => e.type === 'token_received'))
-      .subscribe((_) => this.oauthService.loadUserProfile());
-    this.oauthService.initLoginFlow()
-
-  }
 }

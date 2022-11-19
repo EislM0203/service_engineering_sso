@@ -3,8 +3,10 @@ import {AuthConfig} from "angular-oauth2-oidc";
 export const authCodeFlowConfig: AuthConfig = {
   issuer: 'https://self.se.jku.at/realms/general-auth',
   clientId: 'angular',
-  redirectUri: window.location.origin + '/index.html',
-  responseType: 'code',
-  scope: 'openid',
+  redirectUri: window.location.origin + '/content',
+  responseType: 'id_token token',
+  scope: 'openid profile roles',
   showDebugInformation: true,
+  postLogoutRedirectUri: window.location.origin + '/login',
+  requestAccessToken: true
 }
