@@ -58,10 +58,14 @@ refresh() {
 }
 
 loadUserProfile(){
-
-  this.oauthService.loadUserProfile().then((res)=>{
+  this.oauthService.events
+   .pipe(filter((e) => ["token_received"].includes(e.type)))
+   .subscribe((e) => this.oauthService.loadUserProfile().then((res)=>{
     console.log(res);
-  });
+  }));
+  //this.oauthService.loadUserProfile().then((res)=>{
+  //     console.log(res);
+  //   });
 }
 
 getName() {
