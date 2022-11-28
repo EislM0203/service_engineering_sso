@@ -29,7 +29,6 @@ export class AuthService {
 
 
 loginKeycloak(){
-
   this.oauthService.events
     .pipe(filter((e) => e.type === 'token_received'))
     .subscribe((_) => this.oauthService.loadUserProfile()
@@ -65,11 +64,16 @@ loadUserProfile(){
   });
 }
 
+getName() {
+    let claims = this.oauthService.getIdentityClaims();
+    if (!claims) return null;
+    return claims['name'];
+  }
 
 logout(){
   console.log("Logout auth Service");
   this.oauthService.logOut();
-  
+
 };
-  
+
 }

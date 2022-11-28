@@ -4,7 +4,7 @@ export const authCodeFlowConfig: AuthConfig = {
   issuer: 'https://self.se.jku.at/realms/general-auth',
   clientId: 'angular',
   redirectUri: window.location.origin + '/content',
-  responseType: 'id_token token',
+  responseType: 'code',
   scope: 'openid profile roles',
   showDebugInformation: true,
   postLogoutRedirectUri: window.location.origin + '/login',

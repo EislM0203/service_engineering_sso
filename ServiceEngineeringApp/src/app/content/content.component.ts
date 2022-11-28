@@ -26,7 +26,8 @@ export class ContentComponent implements OnInit, OnDestroy {
       this.isAuthenticated = !!user;
       console.log("!user: " + !user);
       console.log("!!user: " + !!user);
-      this.userName = this.authService.UserName;
+      this.userName = this.authService.getName();
+      //this.userName = this.authService.UserName;
     })
   }
 
