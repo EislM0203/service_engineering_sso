@@ -1,3 +1,4 @@
+/*
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from './auth.service';
@@ -23,3 +24,4 @@ export class AuthComponent implements OnInit {
 
   }
 }
+*/

@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
-import { AuthComponent } from './auth/auth.component';
+//import { AuthComponent } from './auth/auth.component';
 import { ContentComponent } from './content/content.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
-    redirectTo: '/login', 
+  /*
+  {
+    path: '',
+    redirectTo: '/content',
     pathMatch: 'full'
   },
+
   {
     path: 'login',
     component: AuthComponent
@@ -18,6 +20,8 @@ const routes: Routes = [
     path: 'auth',
     component: AuthComponent
   },
+
+
   {
     path: 'content',
     component: ContentComponent
@@ -26,7 +30,7 @@ const routes: Routes = [
     path: '**',
     component: PageNotFoundComponent
   }
-
+*/
 ];
 
 @NgModule({
