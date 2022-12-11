@@ -1,3 +1,4 @@
+/*
 import { Injectable } from '@angular/core';
 import {OAuthService, OAuthErrorEvent} from "angular-oauth2-oidc";
 import { BehaviorSubject } from 'rxjs';
@@ -29,10 +30,12 @@ export class AuthService {
 
 
 loginKeycloak(){
+  // @ts-ignore
   this.oauthService.events
     .pipe(filter((e) => e.type === 'token_received'))
     .subscribe((_) => this.oauthService.loadUserProfile()
     .then((res)=>{
+      console.log(this.oauthService.getAccessToken());
       console.log(res);
     }));
   this.oauthService.initLoginFlow();
@@ -58,14 +61,17 @@ refresh() {
 }
 
 loadUserProfile(){
+
   this.oauthService.events
    .pipe(filter((e) => ["token_received"].includes(e.type)))
    .subscribe((e) => this.oauthService.loadUserProfile().then((res)=>{
     console.log(res);
   }));
-  //this.oauthService.loadUserProfile().then((res)=>{
-  //     console.log(res);
-  //   });
+
+    this.oauthService.loadUserProfile().then((res)=>{
+        console.log(res);
+      });
+
 }
 
 getName() {
@@ -81,3 +87,4 @@ logout(){
 };
 
 }
+*/
