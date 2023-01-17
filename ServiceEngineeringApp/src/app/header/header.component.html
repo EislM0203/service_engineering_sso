@@ -1,0 +1,12 @@
+
+<button class="btn btn-dark ms-2 mt-2" routerLink="/home" routerLinkActive="active" *ngIf="isLoggedIn">Home</button>
+<button class="btn btn-dark ms-2 mt-2" routerLink="/protected" routerLinkActive="active" *ngIf="isLoggedIn">Protected Content</button>
+
+
+<button class="btn btn-success ms-2 mt-2" (click)="login()" *ngIf="!isLoggedIn">Login</button>
+<button class="btn btn-danger ms-2 mt-2" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
+
+<h2 *ngIf="isLoggedIn">Hello {{userProfile.username}}, you are logged in now!</h2>
+<h2 *ngIf="!isLoggedIn">You are not logged in now. - Please log in to access Protected Content</h2>
+
+<hr>
