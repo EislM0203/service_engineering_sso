@@ -1,11 +1,11 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { AppRoutingModule } from './app-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from "@angular/common/http";
-import { ContentComponent } from './content/content.component';
+import {AppComponent} from "./app.component";
+import { ProtectedComponent } from './protected/protected.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -24,11 +24,11 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
 @NgModule({
   declarations: [
-    ContentComponent
+    AppComponent,
+    ProtectedComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     KeycloakAngularModule,
     HttpClientModule
@@ -41,6 +41,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
       deps: [KeycloakService]
     }
   ],
-  bootstrap: [ContentComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

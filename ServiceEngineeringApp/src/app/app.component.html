@@ -1,3 +1,13 @@
-<div class="center">
-  <router-outlet></router-outlet>
-</div>      
+
+<button class="btn btn-dark" disabled="disabled" routerLink="/protected" *ngIf="!isLoggedIn">Content</button>
+<button class="btn btn-dark ms-2" (click)="login()" >Login</button>
+<button class="btn btn-dark ms-2" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
+
+<!--<button class="btn btn-dark ms-2" (click)="loadProfile()" *ngIf="!isLoggedIn">LoadProfile</button>-->
+
+
+
+
+<h1> CONTENT AFTER LOGIN</h1>
+
+<h2>Hello {{userProfile.username}}</h2>
